@@ -5,32 +5,6 @@ Easier and faster elixir
 
 ``` npm install --save elixirx ```
 
-# Project Structure
-
-Most important thing is you will never worry about project structure. Assume you have a asset package called `myapp`.
-Project Structure:
-
-- assets
-    - build (generated)
-    - css
-        - style.css
-    - js
-        - script.js
-    - sass
-        - myapp
-            - myapp.base.scss
-            - myapp.scss
-    - js
-           - myapp
-               - myapp.base.js
-               - myapp.js
-- public
-    - css
-        - myapp.css (generated)
-    - js
-        - myapp.js (generated)
-    
-
 # Usage
 
 ### gulpfile.js
@@ -62,9 +36,36 @@ Elixir(function (mix) {
 ```
 
 ## Gulp
-For compiling full vendors run ```bash gulp --production```
-For watch run ```bash gulp watch```
+For compiling full vendors run `gulp --production`
+For watch run `bash gulp watch`
 
-#### git ignore
+
+# Project Structure
+
+Most important thing is you will never worry about project structure. Assume you have a asset package called `myapp`.
+Project Structure:
+
+- assets
+    - build (generated)
+    - css
+        - style.css
+    - js
+        - script.js
+    - sass
+        - myapp
+            - myapp.base.scss
+            - myapp.scss
+    - js
+           - myapp
+               - myapp.base.js
+               - myapp.js
+- public
+    - css
+        - myapp.css (generated)
+    - js
+        - myapp.js (generated)
+    
+
+### git ignore
 Append this:   
-``` resources/assets/build ```
+`resources/assets/build`

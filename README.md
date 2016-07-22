@@ -3,7 +3,7 @@ Easier and faster elixir
 
 # Install
 
-.
+``` npm install --save elixirx ```
 
 # Project Structure
 
@@ -67,4 +67,4 @@ For watch run ```bash gulp watch```
 
 #### git ignore
 Append this:   
-```resources/assets/build```
+``` resources/assets/build ```

@@ -16,7 +16,7 @@ Project Structure:
         - style.css
     - js
         - script.js
-    -sass
+    - sass
         - myapp
             - myapp.base.scss
             - myapp.scss

@@ -21,15 +21,12 @@ Elixir(function (mix) {
     app.css([
             Elixirx.npm('bootstrap/dist/css/bootstrap.min.css'),
             Elixirx.npm('font-awesome/css/font-awesome.min.css'),
-            Elixirx.assetsVendor('flatkit/css/flatkit.css'),
-            'style.css'
     ]);
 
     app.js([
             Elixirx.npm('jquery/dist/jquery.min.js'),
             Elixirx.npm('tether/dist/js/tether.min.js'),
             Elixirx.npm('bootstrap/dist/js/bootstrap.min.js'),
-            Elixirx.assetsVendor('script.js')
     ]);
 }
 
@@ -47,10 +44,6 @@ Project Structure:
 
 - assets
     - build (generated)
-    - css
-        - style.css
-    - js
-        - script.js
     - sass
         - myapp
             - myapp.base.scss

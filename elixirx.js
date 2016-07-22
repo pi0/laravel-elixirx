@@ -139,4 +139,4 @@ Elixirx.npm = function (path) {
 
 Elixirx.assetsVendor = function (path) {
     return '../vendor/' + path
-};
+}

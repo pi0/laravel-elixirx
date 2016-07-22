@@ -1,6 +1,15 @@
 # Elixirix
 Easier and faster elixir
 
+
+# Features
+
+- Npm compability
+- Auto generate assets
+- Faster ( vendors are compiled once )
+- **CSS Flipper** support for RTL stylesheets
+- Multi package support
+
 # Install
 
 ``` npm install --save elixirx ```
@@ -15,8 +24,9 @@ var Elixir = require('laravel-elixir');
 var Elixirx = require('elixirx');
 
 Elixir(function (mix) {
+    // Second argument is your package name
+    // Third argumend flips everything in that package!
     var app = new Elixirx(mix, 'myapp', true);
-    
     
     app.css([
             Elixirx.npm('bootstrap/dist/css/bootstrap.min.css'),

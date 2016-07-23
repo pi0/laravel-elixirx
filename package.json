@@ -1,11 +1,12 @@
 {
   "name": "elixirx",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Elixir Helper For Those Who DO!",
   "main": "elixirx.js",
-  "dependencies": {
+  "devDependencies": {
        "laravel-elixir": "^4.0.0",
-       "gulp-css-flipper": "^1.0.2"
+       "gulp-css-flipper": "^1.0.2",
+       "gulp": "^3.8.8"
   },
   "scripts": {
     "test": ""

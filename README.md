@@ -62,7 +62,7 @@ Elixir(function (mix) {
 
 ```
 
-** Project Structure **
+**Project Structure**
 
 Assume you have an app called `myapp`. project structure should be something like this:
 

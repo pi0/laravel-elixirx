@@ -1,38 +1,58 @@
+[![npm version](https://badge.fury.io/js/elixirx.svg)](https://badge.fury.io/js/elixirx)
+
 # Elixirix
-Easier and faster elixir
+Elixir Helper For Those Who DO!
 
 
-# Features
+# Why ?
 
-- Npm compability
+- Easy and clean interface
+- Works out-of-box alongside other elixir mixes
 - Auto generate assets
-- Faster ( vendors are compiled once )
+- Faster workflow (vendors are compiled once)
+- Npm assets compability
 - **CSS Flipper** support for RTL stylesheets
 - Multi package support
+- You will never worry about assets structure.
 
 # Install
 
 ``` npm install --save elixirx ```
 
+# How does it works
+
+Elixirx is just a set of helpers for elixir. when you run `gulp --production` above script will compile, minify and contatinate all vendor assets + your project *base* assets in `assets/build` directory. when you run either `gulp` of `gulp watch` this script only compiles `myapp.scss` and `myapp.js`, contatinates theme to vendor and base asssets and publishes them to `public` directory. this will save you lots of build time while developing :)
+
 # Usage
 
-### gulpfile.js
+**gulpfile.js**
 
 ```javascript
 
+ // Require both Elixir and Elixirx modules
 var Elixir = require('laravel-elixir');
 var Elixirx = require('elixirx');
 
+// Elixir entry point
 Elixir(function (mix) {
+
+    // Create a package wrapper named `myapp`
+    // First argument is Elixir mix and will be used for pipes
     // Second argument is your package name
     // Third argumend flips everything in that package!
     var app = new Elixirx(mix, 'myapp', true);
     
+    // Define vendor css files
+    // This function automaticly generates and watches package css files (see project structure)
+    // It also automaticly appends myapp.base.scss to vendors array
     app.css([
             Elixirx.npm('bootstrap/dist/css/bootstrap.min.css'),
             Elixirx.npm('font-awesome/css/font-awesome.min.css'),
     ]);
 
+    // Define vendor js files
+    // This function automaticly generates and watches package js files (see project structure)
+    // It also automaticly appends myapp.base.js to vendors array
     app.js([
             Elixirx.npm('jquery/dist/jquery.min.js'),
             Elixirx.npm('tether/dist/js/tether.min.js'),
@@ -42,15 +62,9 @@ Elixir(function (mix) {
 
 ```
 
-## Gulp
-For compiling full vendors run `gulp --production`
-For watch run `bash gulp watch`
+** Project Structure **
 
-
-# Project Structure
-
-Most important thing is you will never worry about project structure. Assume you have a asset package called `myapp`.
-Project Structure:
+Assume you have an app called `myapp`. project structure should be something like this:
 
 - assets
     - build (generated)
@@ -69,6 +83,23 @@ Project Structure:
         - myapp.js (generated)
     
 
-### git ignore
-Append this:   
+   
+For compiling full vendors run `gulp --production`
+For watch run `gulp watch`
+
+
+
+# Tips
+
++ You can use `Elixirx.npm()` helper to make relative pathes to `node_modules` folder.
+
++ You can use `Elixirx.assetsVendor ()` helper to make relative pathes to `assets/vendor` folder. (for you private vendor packages)
+
++ Append this to `.gitignore` to prevent publishing intermediate assets to your repository:   
 `resources/assets/build`
+
+# Bugs
+
+`npm watch --production` goes into and infinitie dependency loop. so **DON'T RUN IT! **
+
+

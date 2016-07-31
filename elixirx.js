@@ -69,8 +69,12 @@ Elixirx.prototype.css = function (vendors) {
 
         this.mix.styles(vendors, this.buildPath('vendor.css', 'css'));
 
-        if (this.flip)
-            this.mix.flipper(this.buildPath('vendor.css', 'css'), this.buildPath(null, 'css')+'/..');
+     	if (this.flip) {
+          	this.mix.flipper(this.buildPath('vendor.css', 'css'), this.buildPath(null, 'css') + '/..');
+          	// Flipper unMinifies every thing! Work Around is to repipe it again
+           	this.mix.styles(this.buildPathX('vendor.css', 'css'),this.buildPath('vendor.css', 'css'));
+        }
+
     }
 
     // App

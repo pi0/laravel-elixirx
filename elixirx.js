@@ -1,6 +1,9 @@
 // Require modules
 var Elixir = require('laravel-elixir');
 var gulp = require('gulp');
+const path = require('path');
+var postcss = require('gulp-postcss');
+var rtlcss = require('rtlcss');
 
 // --------------------------------------------------------------------------
 // Module Define
@@ -35,11 +38,10 @@ Elixirx.init = function () {
 
 // Flipper
 Elixirx.initFlipper = function () {
-    var flipper = require('gulp-css-flipper');
     Elixir.extend('flipper', function (file, dest) {
-        new Elixir.Task('flipper', function () {console.log(dest);
+        new Elixir.Task('flipper', function () {
             return gulp.src(file)
-                .pipe(flipper())
+                .pipe(postcss([rtlcss]))
                 .pipe(gulp.dest((dest != null) ? dest : Elixir.config.publicPath + '/' + Elixir.config.css.folder))
         });
     });
@@ -61,18 +63,15 @@ Elixirx.prototype.css = function (vendors) {
 
     if (!this.isWatch()) {
         // Vendor & Base
-
-
         this.mix.sass(this.packagePath('base.scss'), this.buildPath('base.css', 'css'));
+        all_vendors = [this.buildPathX('base.css', 'css')].concat(vendors);
 
-        vendors.push(this.buildPathX('base.css', 'css'));
+        this.mix.styles(all_vendors, this.buildPath('vendor.css', 'css'));
 
-        this.mix.styles(vendors, this.buildPath('vendor.css', 'css'));
-
-     	if (this.flip) {
-          	this.mix.flipper(this.buildPath('vendor.css', 'css'), this.buildPath(null, 'css') + '/../');
-          	// Flipper unMinifies every thing! Work Around is to repipe it again
-           	this.mix.styles(this.buildPathX('vendor.css', 'css'),this.buildPath('vendor.css', 'css'));
+        if (this.flip) {
+            this.mix.flipper(this.buildPath('vendor.css', 'css'), path.dirname(this.buildPath(null, 'css')));
+            // Flipper unMinifies every thing! WorkAround is to repipe it again
+            this.mix.styles(this.buildPathX('vendor.css', 'css'), this.buildPath('vendor.css', 'css'));
         }
 
     }
@@ -83,7 +82,6 @@ Elixirx.prototype.css = function (vendors) {
     // Publish
     this.mix.styles([
         this.buildPathX('vendor.css', 'css'),
-        this.buildPathX('base.css', 'css'),
         this.buildPathX('css', 'css')
     ], this.publishPath('css', 'css'));
 

@@ -7,7 +7,7 @@
        "laravel-elixir": "^6",
        "gulp": "^3",
        "rtlcss": "^2",
-	   "gulp-postcss": "^6",
+	   "gulp-postcss": "^6"
   },
   "scripts": {
     "test": ""

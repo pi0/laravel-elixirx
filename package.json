@@ -5,8 +5,9 @@
   "main": "elixirx.js",
   "devDependencies": {
        "laravel-elixir": "^6",
-       "gulp-css-flipper": "^1.0.2",
-       "gulp": "^3"
+       "gulp": "^3",
+       "rtlcss": "^2",
+	   "gulp-postcss": "^6",
   },
   "scripts": {
     "test": ""

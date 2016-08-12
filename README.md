@@ -14,6 +14,7 @@ Elixir Helper For Those Who DO!
 - **CSS Flipper** support for RTL stylesheets
 - Multi package support
 - You will never worry about assets structure.
+- Use Awesome [**Rollup**](http://rollupjs.org/) Bundler.
 
 # Install
 
@@ -87,7 +88,9 @@ Assume you have an app called `myapp`. project structure should be something lik
 For compiling full vendors run `gulp --production`
 For watch run `gulp watch`
 
-
+**Assets compile order**
+For a cheat sheet, remember pipe diagram below:   
+`( ( Base Assets -> Vendor Assets ) -> App Assets )`
 
 # Tips
 

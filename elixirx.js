@@ -62,12 +62,15 @@ Elixirx.prototype.mix = null;
 Elixirx.prototype.css = function (vendors) {
 
     if (!this.isWatch()) {
-        // Vendor & Base
-        this.mix.sass(this.packagePath('base.scss'), this.buildPath('base.css', 'css'));
-        all_vendors = [this.buildPathX('base.css', 'css')].concat(vendors);
 
+        // Base
+        this.mix.sass(this.packagePath('base.scss'), this.buildPath('base.css', 'css'));
+
+        // Vendors
+        all_vendors = [this.buildPathX('base.css', 'css')].concat(vendors);
         this.mix.styles(all_vendors, this.buildPath('vendor.css', 'css'));
 
+        // Flipper
         if (this.flip) {
             this.mix.flipper(this.buildPath('vendor.css', 'css'), path.dirname(this.buildPath(null, 'css')));
             // Flipper unMinifies every thing! WorkAround is to repipe it again
@@ -92,11 +95,16 @@ Elixirx.prototype.css = function (vendors) {
 Elixirx.prototype.js = function (vendors) {
 
     if (!this.isWatch()) {
-        // Vendor & Base
-        vendors.push(this.packagePath('base.js', ''));
-        this.mix.scripts(vendors, this.buildPath('vendor.js', 'js'));
+        // Base
+        this.mix.rollup(this.packagePath('base.js'), this.buildPath('base.js', 'js'));
+
+        // Vendors
+        all_vendors = [this.buildPathX('base.js', 'js')].concat(vendors);
+        this.mix.scripts(all_vendors, this.buildPath('vendor.js', 'js'));
     }
 
+    // App
+    this.mix.rollup(this.packagePath('js'), this.buildPath('js', 'js'));
 
     // Publish
     this.mix.scripts([

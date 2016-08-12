@@ -1,13 +1,15 @@
 {
   "name": "elixirx",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Elixir Helper For Those Who DO!",
   "main": "elixirx.js",
-  "devDependencies": {
-       "laravel-elixir": "^6",
-       "gulp": "^3",
-       "rtlcss": "^2",
-	   "gulp-postcss": "^6"
+  "dependencies": {
+    "gulp": "*",
+    "gulp-postcss": "*",
+    "laravel-elixir": "*",
+    "laravel-elixir-rollup-official": "*",
+    "rollup": "*",
+    "rtlcss": "*"
   },
   "scripts": {
     "test": ""

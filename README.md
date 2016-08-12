@@ -1,5 +1,9 @@
 [![npm version](https://badge.fury.io/js/elixirx.svg)](https://badge.fury.io/js/elixirx)
 
+
+# DEPRECATED #
+## ... You don't need to reinvent the wheel!! ## 
+
 # Elixirix
 Elixir Helper For Those Who DO!
 

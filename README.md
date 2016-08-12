@@ -1,8 +1,6 @@
 [![npm version](https://badge.fury.io/js/elixirx.svg)](https://badge.fury.io/js/elixirx)
 
-# DEPRECATED!
-
-## Use [laravel-elixir-rtl](https://github.com/pi0/laravel-elixir-rtl) Instead!
+# DEPRECATED! Use  [laravel-elixir-packager](https://github.com/pi0/laravel-elixir-packager) + [laravel-elixir-rtl](https://github.com/pi0/laravel-elixir-rtl) Instead!
 
 ## Elixirix
 Elixir Helper For Those Who DO!

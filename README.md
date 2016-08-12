@@ -1,10 +1,10 @@
 [![npm version](https://badge.fury.io/js/elixirx.svg)](https://badge.fury.io/js/elixirx)
 
+# DEPRECATED!
 
-# DEPRECATED #
-## ... You don't need to reinvent the wheel!! ## 
+## Use [laravel-elixir-rtl](https://github.com/pi0/laravel-elixir-rtl) Instead!
 
-# Elixirix
+## Elixirix
 Elixir Helper For Those Who DO!
 
 
